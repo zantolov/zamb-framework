@@ -1,0 +1,16 @@
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "/var/www/zamb/workspace/zantolov/zamb"
+    }
+  ],
+  "require": {
+    "zantolov/zamb-framework": "dev-master"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "classmap": ["application/src"]
+  }
+}
