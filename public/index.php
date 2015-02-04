@@ -4,18 +4,20 @@
  * Front controller of application
  */
 
-use Zantolov\Zamb\Application;
-use Zantolov\Zamb\ContainerBuilder;
 use Symfony\Component\HttpFoundation\Request;
+use \Zantolov\Zamb\Core\Application\Application;
+use \Zantolov\Zamb\Core\Application\Container;
 
 require_once('../application/bootstrap/web.php');
 
-// Fill container with defaults
-$container = new \Pimple\Container();
-$containerBuilder = new ContainerBuilder();
-$containerBuilder->addDependancies($container);
 
 $request = Request::createFromGlobals();
+
+$container = Container::make();
+
+// Add user dependencies
+$containerModifier = new \Definitions\Dependencies();
+$containerModifier->defineDependencies($container);
 
 /** @var Application $app */
 $app = $container['application'];

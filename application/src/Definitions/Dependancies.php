@@ -1,8 +1,11 @@
 <?php
 
+namespace Definitions;
+
+use \Zantolov\Zamb\Core\Application\ContainerModifierInterface;
 use Pimple\Container;
 
-class DependanciesManager
+class Dependencies implements ContainerModifierInterface
 {
 
     /**
@@ -15,10 +18,12 @@ class DependanciesManager
      *      return $dispatcher;
      *   });
      *
+     * $container->offsetUnset('listener.exception');
+     *
      * @param Container $container
      *
      */
-    public static function addDependanciesToContainer(Container $container)
+    public function defineDependencies(Container $container)
     {
 
     }

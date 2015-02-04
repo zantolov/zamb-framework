@@ -2,11 +2,11 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "/var/www/zamb/workspace/zantolov/zamb"
+      "url": "https://zoka123@bitbucket.org/zoka123/zamb-core.git"
     }
   ],
   "require": {
-    "zantolov/zamb-framework": "dev-master"
+    "zantolov/zamb-core": "dev-master"
   },
   "require-dev": {
   },
