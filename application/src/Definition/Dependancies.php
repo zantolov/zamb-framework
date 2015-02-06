@@ -1,6 +1,6 @@
 <?php
 
-namespace Definitions;
+namespace Definition;
 
 use \Zantolov\Zamb\Core\Application\ContainerModifierInterface;
 use Pimple\Container;
@@ -25,7 +25,12 @@ class Dependencies implements ContainerModifierInterface
      */
     public function defineDependencies(Container $container)
     {
-
+        $container['database.params'] = array(
+            'driver'   => 'pdo_mysql',
+            'user'     => 'root',
+            'password' => '',
+            'dbname'   => 'foo',
+        );
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Definitions;
+namespace Definition;
 
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
@@ -18,6 +18,16 @@ class Routes implements RoutesModifierInterface
             ))
         );
 
+        $routes->add('createPost', new Route('/create/', array(
+                '_controller' => '\TestController::createAction',
+            ))
+        );
+
+
+        $routes->add('listPosts', new Route('/list/', array(
+                '_controller' => '\TestController::listAction',
+            ))
+        );
 
         return $routes;
     }
