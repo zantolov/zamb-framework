@@ -7,7 +7,8 @@ class TestController
 
     public function indexAction($name)
     {
-        return new Response('Hello ' . $name);
+
+        return View::response('index.html.twig', array("name" => $name));
     }
 
     public function createAction()

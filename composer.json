@@ -3,6 +3,10 @@
     {
       "type": "vcs",
       "url": "https://zoka123@bitbucket.org/zoka123/zamb-core.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://zoka123@bitbucket.org/zoka123/zamb-admin.git"
     }
   ],
   "require": {
