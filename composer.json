@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "zantolov/zamb-core": "dev-master"
+    "zantolov/zamb-core": "dev-master",
+    "zantolov/zamb-admin": "dev-master"
   },
   "require-dev": {
   },

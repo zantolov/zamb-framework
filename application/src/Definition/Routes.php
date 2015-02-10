@@ -4,6 +4,7 @@ namespace Definition;
 
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
+use Zantolov\Zamb\Admin\ZambAdminExtension;
 use Zantolov\Zamb\Core\Application\RoutesModifierInterface;
 
 class Routes implements RoutesModifierInterface
@@ -29,6 +30,7 @@ class Routes implements RoutesModifierInterface
             ))
         );
 
-        return $routes;
+        // Load routes from Extensions
+        $routes->addCollection(\Extension::get(ZambAdminExtension::EXTENSION_ID)->getRoutes('admin'));
     }
 }

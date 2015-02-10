@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f62498ac3c955d217ea6ab0c9ef81659",
+    "hash": "f76a60cb123e07243c0b4f844b966333",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1070,12 +1070,38 @@
             "time": "2015-01-25 17:32:08"
         },
         {
+            "name": "zantolov/zamb-admin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://zoka123@bitbucket.org/zoka123/zamb-admin.git",
+                "reference": "5ccc522c8b3a17d702ab40b7fadfe6cb803f7894"
+            },
+            "require": {
+                "zantolov/zamb-core": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zantolov\\Zamb\\Admin\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Zoran Antolovic",
+                    "email": "zoran.antolovic@trikoder.net"
+                }
+            ],
+            "description": "Zamb framework Admin extension",
+            "time": "2015-02-10 00:52:54"
+        },
+        {
             "name": "zantolov/zamb-core",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://zoka123@bitbucket.org/zoka123/zamb-core.git",
-                "reference": "6f43cf52e43195956d1c6ef1e85467adfb53d664"
+                "reference": "d5731183cdc790dee243fe403e2b96345fdd64a9"
             },
             "require": {
                 "doctrine/orm": "2.4.7",
@@ -1090,7 +1116,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Zantolov\\Zamb\\Core\\": "src/Zantolov/Zamb/Core/"
+                    "Zantolov\\Zamb\\Core\\": "src"
                 }
             },
             "authors": [
@@ -1100,14 +1126,15 @@
                 }
             ],
             "description": "Zamb framework core",
-            "time": "2015-02-09 21:33:18"
+            "time": "2015-02-10 00:54:01"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "zantolov/zamb-core": 20
+        "zantolov/zamb-core": 20,
+        "zantolov/zamb-admin": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
