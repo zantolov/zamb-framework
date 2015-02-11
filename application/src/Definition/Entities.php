@@ -2,6 +2,7 @@
 
 namespace Definition;
 
+use Zantolov\Zamb\Admin\ZambAdminExtension;
 use Zantolov\Zamb\Core\Application\EntityPathsCollection;
 
 /**
@@ -17,6 +18,9 @@ class Entities
     public function defineEntityPaths(EntityPathsCollection $paths)
     {
         $paths->add('application/src/Model');
+
+        // Include extensions entities paths
+        $paths->add(\Extension::get(ZambAdminExtension::EXTENSION_ID)->getEntityPaths());
     }
 
 }

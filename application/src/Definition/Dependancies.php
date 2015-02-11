@@ -2,6 +2,7 @@
 
 namespace Definition;
 
+use Zantolov\Zamb\Admin\ZambAdminExtension;
 use \Zantolov\Zamb\Core\Application\ContainerModifierInterface;
 use Pimple\Container;
 
@@ -31,6 +32,9 @@ class Dependencies implements ContainerModifierInterface
             'password' => '',
             'dbname'   => 'foo',
         );
+
+        // Define dependencies from extensions
+        \Extension::get(ZambAdminExtension::EXTENSION_ID)->defineDependencies($container);
     }
 
 }
