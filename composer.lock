@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f76a60cb123e07243c0b4f844b966333",
+    "hash": "eb6d85a998d79bdce22c9a08070be0c7",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1075,7 +1075,7 @@
             "source": {
                 "type": "git",
                 "url": "https://zoka123@bitbucket.org/zoka123/zamb-admin.git",
-                "reference": "5ccc522c8b3a17d702ab40b7fadfe6cb803f7894"
+                "reference": "96c34dbc95b31cf9236fb09637bca9bf909415a9"
             },
             "require": {
                 "zantolov/zamb-core": "dev-master"
@@ -1093,7 +1093,7 @@
                 }
             ],
             "description": "Zamb framework Admin extension",
-            "time": "2015-02-10 00:52:54"
+            "time": "2015-02-16 00:26:19"
         },
         {
             "name": "zantolov/zamb-core",
@@ -1101,7 +1101,7 @@
             "source": {
                 "type": "git",
                 "url": "https://zoka123@bitbucket.org/zoka123/zamb-core.git",
-                "reference": "d5731183cdc790dee243fe403e2b96345fdd64a9"
+                "reference": "ae66464044edf873e52e110b3dd6b12ae39fe640"
             },
             "require": {
                 "doctrine/orm": "2.4.7",
@@ -1126,7 +1126,34 @@
                 }
             ],
             "description": "Zamb framework core",
-            "time": "2015-02-10 00:54:01"
+            "time": "2015-02-16 00:27:18"
+        },
+        {
+            "name": "zantolov/zamb-example",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://zoka123@bitbucket.org/zoka123/zamb-example.git",
+                "reference": "372919d667c9f240deb7f58f58f808fbed220523"
+            },
+            "require": {
+                "zantolov/zamb-admin": "dev-master",
+                "zantolov/zamb-core": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zantolov\\Zamb\\Example\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Zoran Antolovic",
+                    "email": "zoran.antolovic@trikoder.net"
+                }
+            ],
+            "description": "Zamb framework examples",
+            "time": "2015-02-16 00:24:31"
         }
     ],
     "packages-dev": [],
@@ -1134,7 +1161,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "zantolov/zamb-core": 20,
-        "zantolov/zamb-admin": 20
+        "zantolov/zamb-admin": 20,
+        "zantolov/zamb-example": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

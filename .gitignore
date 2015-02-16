@@ -1,5 +1,4 @@
 .idea
-workspace
 cache/*
 !cache/.gitkeep
 vendor

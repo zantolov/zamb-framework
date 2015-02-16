@@ -24,7 +24,7 @@ class Dependencies implements ContainerModifierInterface
      * @param Container $container
      *
      */
-    public function defineDependencies(Container $container)
+    public static function defineDependencies(Container $container)
     {
         $container['database.params'] = array(
             'driver'   => 'pdo_mysql',
@@ -34,7 +34,8 @@ class Dependencies implements ContainerModifierInterface
         );
 
         // Define dependencies from extensions
-        \Extension::get(ZambAdminExtension::EXTENSION_ID)->defineDependencies($container);
+        ZambAdminExtension::defineDependencies($container);
+        \Zantolov\Zamb\Example\Admin\Dependencies::defineDependencies($container);
     }
 
 }

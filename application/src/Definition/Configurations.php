@@ -7,7 +7,7 @@ use Zantolov\Zamb\Core\Application\ConfigurationModifierInterface;
 class Configurations implements ConfigurationModifierInterface
 {
 
-    public function defineConfiguration(array &$config)
+    public static function defineConfiguration(array &$config)
     {
         $config['application.mode.development'] = 1;
 

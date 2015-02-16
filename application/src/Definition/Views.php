@@ -15,14 +15,16 @@ class Views implements ViewModifierInterface
      * Paths can be namespaced
      * @param ViewPathsCollection $paths
      */
-    public function defineViewPaths(ViewPathsCollection $paths)
+    public static function defineViewPaths(ViewPathsCollection $paths)
     {
 
         $paths->add('application/src/View');
 
 
         // Define view paths for Extensions
-        \Extension::get(ZambAdminExtension::EXTENSION_ID)->defineViewPaths($paths);
+        ZambAdminExtension::defineViewPaths($paths);
+        \Zantolov\Zamb\Example\Admin\Views::defineViewPaths($paths);
+
     }
 
 }

@@ -10,7 +10,7 @@ use Zantolov\Zamb\Core\Application\RoutesModifierInterface;
 class Routes implements RoutesModifierInterface
 {
 
-    public function defineRoutes(RouteCollection $routes)
+    public static function defineRoutes(RouteCollection $routes, $prefix = null)
     {
         // Add routes here
         $routes->add('home', new Route('/{name}', array(
@@ -30,7 +30,15 @@ class Routes implements RoutesModifierInterface
             ))
         );
 
+        $routes->add(
+            '/posts', new Route('/posts/', array(
+                '_controller' => '\Zantolov\Zamb\Admin\Example\Controller\PostsAdminController::indexAction'
+            ))
+        );
+
         // Load routes from Extensions
-        $routes->addCollection(\Extension::get(ZambAdminExtension::EXTENSION_ID)->getRoutes('admin'));
+        ZambAdminExtension::defineRoutes($routes, 'admin');
+        \Zantolov\Zamb\Example\Admin\Routes::defineRoutes($routes, 'admin');
+
     }
 }

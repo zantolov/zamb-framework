@@ -8,7 +8,7 @@ require APP_ROOT_PATH . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 $container = Container::make();
 
-// Add user dependencies
+// Add app specific dependencies
 $containerModifier = new \Definition\Dependencies();
 $containerModifier->defineDependencies($container);
 
