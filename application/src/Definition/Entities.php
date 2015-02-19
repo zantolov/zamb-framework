@@ -22,6 +22,7 @@ class Entities
         // Include extensions entities paths
         ZambAdminExtension::defineEntityPaths($paths);
         \Zantolov\Zamb\Example\Admin\Entities::defineEntityPaths($paths);
+        \Zantolov\Zamb\Example\Ecommerce\Entities::defineEntityPaths($paths);
     }
 
 }
