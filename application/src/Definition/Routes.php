@@ -8,6 +8,8 @@ use Symfony\Component\Routing\RouteCollection;
 use Zantolov\Zamb\Admin\ZambAdminExtension;
 use Zantolov\Zamb\Core\Application\RoutesModifierInterface;
 use Zantolov\Zamb\Core\Factory\RouteFactory;
+use Zantolov\Zamb\Example\Blog\Controller\PostsResourceController;
+use Zantolov\Zamb\Example\Blog\Controller\TagsResourceController;
 use Zantolov\Zamb\Example\Ecommerce\Controller\ProductResourceController;
 
 class Routes implements RoutesModifierInterface
@@ -34,8 +36,26 @@ class Routes implements RoutesModifierInterface
             ))
         );
 
+        $routes->add(
+            '/posts', new Route('/posts/{id}/tags', array(
+                '_controller' => '\Zantolov\Zamb\Admin\Example\Controller\PostsAdminController::postTagsAction'
+            ))
+        );
+
+        // Products
         $routes->addCollection(RouteFactory::make('/products', RouteFactory::TYPE_RESOURCE,
-            array('name' => 'resources.products', '_controller' => ProductResourceController::class)));
+            array('name' => 'resources.products', '_controller' => ProductResourceController::class))
+        );
+
+        // Posts
+        $routes->addCollection(RouteFactory::make('/posts', RouteFactory::TYPE_RESOURCE,
+            array('name' => 'resources.posts', '_controller' => PostsResourceController::class))
+        );
+
+        // Posts
+        $routes->addCollection(RouteFactory::make('/tags', RouteFactory::TYPE_RESOURCE,
+            array('name' => 'resources.tags', '_controller' => TagsResourceController::class))
+        );
 
         // Login routes start {
         $routes->add('get.login', RouteFactory::make('/login')

@@ -4,6 +4,7 @@ namespace Zantolov\Zamb\Admin\Example\Controller;
 
 use Zantolov\Zamb\Admin\Controller\ProtectedControllerInterface;
 use Zantolov\Zamb\Admin\Controller\ProtectedControllerTrait;
+use Zantolov\Zamb\Example\Blog\Model\Post;
 
 class PostsAdminController implements ProtectedControllerInterface
 {
@@ -17,14 +18,16 @@ class PostsAdminController implements ProtectedControllerInterface
 
     public function indexAction()
     {
-        $posts = \EntityManager::get()->getRepository('Post')->findAll();
+        $posts = \EntityManager::get()->getRepository(Post::class)->findAll();
 
-        $data = array();
-        foreach ($posts as $post) {
-            $data[] = array($post->id, $post->title, $post->slug, $post->body);
-        }
+        return new \Symfony\Component\HttpFoundation\JsonResponse($posts);
+    }
 
-        return new \Symfony\Component\HttpFoundation\JsonResponse($data);
+    public function postTagsAction($id)
+    {
+        $post = \EntityManager::get()->getRepository(Post::class)->find($id);
+
+        return new \Symfony\Component\HttpFoundation\JsonResponse($post->getTags());
     }
 
 }

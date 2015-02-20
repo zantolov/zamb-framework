@@ -19,5 +19,8 @@ class Configurations implements ConfigurationModifierInterface
             'password' => ''
         );
 
+        $config['baseUrl'] = 'http://zamb.loc/';
+        $config['assetsDir'] = 'static/';
+
     }
 }

@@ -11,4 +11,10 @@ class LoginController extends AuthController
     {
         return new User();
     }
+
+
+    public function getLoginAction()
+    {
+        return \View::response('Authentication/login-page.html.twig');
+    }
 }
