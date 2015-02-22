@@ -19,6 +19,7 @@ class Views implements ViewModifierInterface
     {
 
         $paths->add('application/src/View');
+        $paths->add('application/src/Bundle/', 'bundle');
 
 
         // Define view paths for Extensions

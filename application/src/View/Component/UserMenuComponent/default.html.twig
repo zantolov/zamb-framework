@@ -1,0 +1,12 @@
+{% if user %}
+    <div>
+        <i class="small mdi-action-account-circle"></i> <a class='' href='#'>{{ user.username }}</a>
+        <a href="{{ route('logout.get') }}"><i class="mdi-action-exit-to-app small"></i> Logout</a>
+    </div>
+{% else %}
+    <div>
+        You are not logged in.
+        <a href="{{ route('login.get') }}"><i class="mdi-action-exit-to-app small"></i> Login</a>
+        <a href="{{ route('register.get') }}"> <i class="mdi-social-person-add small"></i> Register</a>
+    </div>
+{% endif %}

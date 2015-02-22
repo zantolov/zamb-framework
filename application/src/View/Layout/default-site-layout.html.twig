@@ -1,0 +1,57 @@
+{% extends 'Layout/html5.html.twig' %}
+
+
+    {% block css %}
+        <link href="{{ asset('css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{{ asset('css/zamb.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    {% endblock %}
+
+{% block body %}
+
+    {% block topbar %}
+        <div class="grey darken-3 right-align ">
+            <div id="top-bar" class="container">
+                {{ component("Component\\UserMenuComponent") | raw }}
+            </div>
+        </div>
+    {% endblock %}
+
+    <div class="container">
+        {% block header %}
+            {{ component("Component\\HeaderComponent") | raw }}
+        {% endblock %}
+
+        {% block notifications %}
+            {{ component("Component\\NotificationComponent") | raw }}
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block modal %}
+        <div id="main-page-modal" class="modal left-align">
+        </div>
+    {% endblock %}
+
+{% endblock %}
+
+
+{% block scripts %}
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{{ asset('js/materialize.js') }}"></script>
+
+    <script>
+        $('body').hide();
+        var onDocumentReadyFunctions = window.onDocumentReadyFunctions || [];
+
+        $(function () {
+            $('body').fadeIn(function () {
+                var len = onDocumentReadyFunctions.length;
+                for (var i = 0; i < len; i++) {
+                    onDocumentReadyFunctions[i]();
+                }
+            });
+        });
+    </script>
+{% endblock %}

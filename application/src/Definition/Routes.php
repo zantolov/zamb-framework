@@ -2,7 +2,9 @@
 
 namespace Definition;
 
+use Bundle\AdminBundle\Controller\CRUDResourceController;
 use Bundle\AuthBundle\Controller\LoginController;
+use Controller\SiteController;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 use Zantolov\Zamb\Admin\ZambAdminExtension;
@@ -57,28 +59,23 @@ class Routes implements RoutesModifierInterface
             array('name' => 'resources.tags', '_controller' => TagsResourceController::class))
         );
 
-        // Login routes start {
-        $routes->add('get.login', RouteFactory::make('/login')
-            ->setDefault('_controller', LoginController::class . '::getLoginAction')
+        // Login
+        $routes->addCollection(RouteFactory::make('/login', RouteFactory::TYPE_METHOD_PREFIX,
+            array('name' => 'login', '_controller' => LoginController::class, 'action' => 'LoginAction', 'methods' => array('POST', 'GET')))
+        );
+
+        // Register
+        $routes->addCollection(RouteFactory::make('/register', RouteFactory::TYPE_METHOD_PREFIX,
+            array('name' => 'register', '_controller' => LoginController::class, 'action' => 'RegisterAction', 'methods' => array('POST', 'GET')))
+        );
+
+        // Admin
+        $routes->add('admin.dashboard', RouteFactory::make('/admin')
+            ->setDefault('_controller', CRUDResourceController::class . '::indexAction')
             ->setMethods(array('GET'))
         );
 
-        $routes->add('post.login', RouteFactory::make('/login')
-            ->setDefault('_controller', LoginController::class . '::postLoginAction')
-            ->setMethods(array('POST'))
-        );
-
-        $routes->add('get.register', RouteFactory::make('/register')
-            ->setDefault('_controller', LoginController::class . '::getRegisterAction')
-            ->setMethods(array('GET'))
-        );
-
-        $routes->add('post.register', RouteFactory::make('/register')
-            ->setDefault('_controller', LoginController::class . '::postRegisterAction')
-            ->setMethods(array('POST'))
-        );
-
-        $routes->add('get.logout', RouteFactory::make('/logout')
+        $routes->add('logout.get', RouteFactory::make('/logout')
             ->setDefault('_controller', LoginController::class . '::getLogoutAction')
             ->setMethods(array('GET'))
         );
@@ -91,9 +88,8 @@ class Routes implements RoutesModifierInterface
         // } Login routes end
 
 
-        $routes->add('home', new Route('/{name}', array(
-                '_controller' => '\TestController::indexAction',
-                'name'        => 'World'
+        $routes->add('home', new Route('/', array(
+                '_controller' => SiteController::class . '::indexAction',
             ))
         );
 

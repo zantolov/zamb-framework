@@ -10,9 +10,7 @@
 
             <title>{% block title %}My Site Title{% endblock %}</title>
 
-            {% block css %}
-                <link href="{{ asset('css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
-            {% endblock %}
+            {% block css %}{% endblock %}
         {% endspaceless %}
     {%- endblock %}
 </head>
@@ -20,10 +18,7 @@
 {% block body %}
 {% endblock %}
 
-{% block scripts %}
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="{{ asset('js/materialize.js') }}"></script>
-{% endblock %}
+{% block scripts %}{% endblock %}
+
 </body>
 </html>

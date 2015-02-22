@@ -1,0 +1,27 @@
+.no-shadow {
+    box-shadow: none !important;
+}
+
+.btn.btn-small {
+    height: 27px;
+    line-height: 27px;
+    box-sizing: border-box;
+}
+
+#site-header {
+    margin-top: 15px;
+}
+
+*[class*="darken-"],
+*[class*="darken-"] a {
+    color: #FFF;
+}
+
+#top-bar * {
+    display: inline-block;
+    vertical-align: middle
+}
+
+#top-bar i {
+    margin-left: 10px;
+}

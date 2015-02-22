@@ -1,0 +1,21 @@
+<a class="mini-cart-modal-trigger waves-effect waves-light btn btn-small" href="#main-page-modal">Open cart</a>
+<script>
+    var onDocumentReadyFunctions = window.onDocumentReadyFunctions || [];
+
+    onDocumentReadyFunctions.push(function () {
+        $('.mini-cart-modal-trigger').leanModal({
+                    dismissible: true,
+                    opacity: 0.5,
+                    in_duration: 300,
+                    out_duration: 200,
+                    ready: function () {
+                        // Load cart here
+                    },
+                    complete: function () {
+
+                    }
+                }
+        );
+    });
+
+</script>

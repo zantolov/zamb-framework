@@ -18,6 +18,7 @@ class Entities
     public static function defineEntityPaths(EntityPathsCollection $paths)
     {
         $paths->add('application/src/Model');
+        $paths->add('application/src/Bundle');
 
         // Include extensions entities paths
         ZambAdminExtension::defineEntityPaths($paths);

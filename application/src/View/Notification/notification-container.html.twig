@@ -1,0 +1,5 @@
+{% for notification in notifications %}
+    <div class="{{ notification.getCssClass() }}">
+        {{ notification.text }}
+    </div>
+{% endfor %}
